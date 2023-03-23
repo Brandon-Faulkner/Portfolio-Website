@@ -23,6 +23,7 @@ if (mode == 'dark') {
     document.documentElement.classList.add("light");
 }*/
 
+// Navigation Menu
 toggle = document.querySelectorAll(".toggle")[0];
 nav = document.querySelectorAll("nav")[0];
 toggle_open_text = 'Menu';
@@ -41,3 +42,22 @@ toggle.addEventListener('click', function() {
 setTimeout(function(){
 	nav.classList.toggle('open');	
 }, 800);
+
+// Header Auto Show and Hide
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.querySelector("header").style.top = "0";
+    if(window.innerWidth <= 800){
+      document.getElementById("mobile-nav").style.top = "-190px";
+    }
+    else {
+      document.getElementById("mobile-nav").style.top = "-160px";
+    }   
+  } else {
+    document.querySelector("header").style.top = "-150px";
+    document.getElementById("mobile-nav").style.top = "-300px";
+  }
+  prevScrollpos = currentScrollPos;
+}
