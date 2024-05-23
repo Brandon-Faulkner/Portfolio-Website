@@ -1,18 +1,27 @@
 /*#region MAIN STYLES */
 :root {
-  --color-bg: #222831;
-  --color-bg-light: #222831bf;
-  --color-dark: #31363f;
-  --color-teal: #76abae;
-  --color-fg: #eeeeee;
-  --color-fg-light: #eeeeee5b;
+  /*Palette From: https://paperheartdesign.com/blog/color-palette-dark-moody - Forest Mist*/
+  --palette-5: #001b2e;
+  --palette-4: #1d3f58;
+  --palette-3: #537692;
+  --palette-2: #b3cde4;
+  --palette-1: #eef3f9;
+  --color-bg: var(--palette-5);
+  --color-bg-two: var(--palette-4);
+  --color-fg: var(--palette-1);
+  --color-fg-two: var(--palette-2);
   --box-shadow: 0 3px 6px #00000029, 0 3px 6px #0000003b;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   line-height: 1.5;
-  background-color: var(--color-bg);
+  background: var(--color-bg);
+  background: linear-gradient(180deg, var(--palette-5) 0%, var(--palette-4) 100%);
   font-family: 'Roboto', 'sans-serif';
 }
 
@@ -32,6 +41,7 @@ ul {
 h1 {
   font-weight: 900;
   font-size: clamp(12px, 4rem, 38px);
+  letter-spacing: .1rem;
   margin: 0;
   color: var(--color-fg);
 }
@@ -40,6 +50,7 @@ h2 {
   font-weight: 500;
   margin: .75rem 0 0 0;
   font-size: clamp(12px, 4rem, 20px);
+  letter-spacing: .075rem;
   color: var(--color-fg);
 }
 
@@ -47,7 +58,8 @@ header p {
   max-width: 20rem;
   margin: 1rem 0 0 0;
   line-height: 1.5;
-  color: var(--color-fg-light);
+  letter-spacing: .05rem;
+  color: var(--color-fg-two);
 }
 
 nav {
@@ -66,14 +78,15 @@ nav a>span:first-of-type {
   transition-property: all;
   transition-timing-function: cubic-bezier(.4, 0, .2, 1);
   transition-duration: .15s;
-  background: var(--color-fg-light);
+  background: var(--color-fg-two);
 }
 
 nav a>span:last-of-type {
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: .15rem;
   line-height: 1rem;
-  color: var(--color-fg-light);
+  color: var(--color-fg-two);
 }
 
 nav a:hover>span:first-of-type {
@@ -142,16 +155,18 @@ section h2 {
   padding: 1.25rem 1.5rem;
   top: 0;
   position: sticky;
-  background: var(--color-bg-light);
-  backdrop-filter: blur(2px);
+  background: transparent;
+  backdrop-filter: blur(8px);
 }
 
-section p {
+section p, footer p {
   margin: 0 0 1rem 0;
-  color: var(--color-fg-light);
+  color: var(--color-fg-two);
+  letter-spacing: .05rem;
 }
 
 /*#endregion MAIN STYLES */
+
 /*#region MOBILE RESPONSIVENESS */
 @media (min-width:768px) {
   #wrapper {
@@ -202,7 +217,7 @@ section p {
 
   section {
     scroll-margin-top: 6rem;
-    margin-bottom: 9rem;
+    margin-bottom: 25rem;
   }
 
   section h2 {
